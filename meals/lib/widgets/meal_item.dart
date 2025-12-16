@@ -6,14 +6,9 @@ import 'package:meals/widgets/meal_item_trait.dart';
 import 'package:meals/models/meal.dart';
 
 class MealItem extends StatelessWidget {
-  const MealItem({
-    super.key,
-    required this.meal,
-    required this.onToggleFavorites,
-  });
+  const MealItem({super.key, required this.meal});
 
   final Meal meal;
-  final void Function(Meal meal) onToggleFavorites;
 
   String get complexityText {
     return meal.complexity.name[0].toUpperCase() +
@@ -28,10 +23,7 @@ class MealItem extends StatelessWidget {
   void _selectMeal(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (ctx) =>
-            MealDetails(meal: meal, onToggleFavorites: onToggleFavorites),
-      ),
+      MaterialPageRoute(builder: (ctx) => MealDetails(meal: meal)),
     );
   }
 
